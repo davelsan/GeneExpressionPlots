@@ -139,9 +139,13 @@ class PlotStore {
    * analysis.
    */
   addHeatmapPlot() {
-    this.plots.push(
-      createHeatmapPlot()
-    );
+    // this.plots.push(
+    //   createHeatmapPlot()
+    // );
+    this.plots.push({
+      plotId: nanoid(),
+      type: 'd3HeatMap',
+    });
   }
 
   /**

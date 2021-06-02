@@ -114,10 +114,10 @@ export class Dataframe {
    */
   replicateColorsByGroupAndSample() {
     
-    let n_groups_samples = Object.keys(this.headerObject).map(groupName =>
+    const n_groups_samples = Object.keys(this.headerObject).map(groupName =>
       Object.keys(this.headerObject[groupName]).length).reduce((acc, curr) =>
       acc + curr, 0);
-    let palette = iwanthue(n_groups_samples);
+    const palette = iwanthue(n_groups_samples);
     const sampleNamesToIndices = this.colNames.reduce((acc,curr,index) => {
       const sampleName = curr.split(this.config.multiHeader).slice(0,2).join(this.config.multiHeader);
       acc[sampleName] ? acc[sampleName].push(index) : acc[sampleName] = [index];
@@ -129,7 +129,6 @@ export class Dataframe {
       return acc;
     }, []);
 
-    console.log({colors});
     return colors;
   }
 

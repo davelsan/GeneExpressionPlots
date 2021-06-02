@@ -105,6 +105,7 @@ export function singleGeneGroupedPlot(accessionIds, options) {
     accessions: accessionIds,
     showCaption: options.showCaption,
     plotId: options.plotId,
+    type: 'plotly',
   };
 }
 
@@ -151,6 +152,7 @@ export function multiGeneBarPlot(accessionIds, options) {
     accessions: accessionIds,
     showCaption: options.showCaption,
     plotId: options.plotId,
+    type: 'plotly',
   };
 }
 
@@ -184,6 +186,7 @@ export function multiGeneIndCurvesPlot(accessionIds, options) {
     accessions: accessionIds,
     showCaption: options.showCaption,
     plotId: options.plotId,
+    type: 'plotly',
   };
 }
 
@@ -254,6 +257,7 @@ export function stackedLinePlot(accessionIds, options) {
     accessions: accessionIds,
     showCaption: options.showCaption,
     plotId: options.plotId,
+    type: 'plotly',
   };
 }
 
@@ -373,6 +377,7 @@ export function createPcaPlot() {
     data,
     layout,
     plotId: nanoid(),
+    type: 'plotly',
   };
 }
 
