@@ -21,7 +21,7 @@ import {
  */
 export function clusterExpressionReplicates(dataframe) {
   const arrOfReplicates = dataframe.toTransposed2dArray();
-  const distanceMatrix = getDistanceMatrix(arrOfReplicates, euclidean)
+  const distanceMatrix = getDistanceMatrix(arrOfReplicates, euclidean);
   const tree = agnes(distanceMatrix, {
     method: 'ward',
     isDistanceMatrix: true
@@ -29,7 +29,7 @@ export function clusterExpressionReplicates(dataframe) {
   return {
     distanceMatrix,
     tree
-  }
+  };
 }
 
 /**
@@ -46,7 +46,7 @@ export function clusterExpressionReplicates(dataframe) {
  */
 export function getChildren(clstr) {
   if (clstr.isLeaf) {
-    return [clstr.index]
+    return [clstr.index];
   } else {
     return clstr.children.reduce((a, c) => {
       return [...a, getChildren(c)];
@@ -71,14 +71,14 @@ export function convertTreeForD3(clstr, leafNames) {
   if (clstr.isLeaf) {
     return {
       name: [leafNames[clstr.index]]
-    }
+    };
   } else {
     const name = [uuidv4()];
-    const children = clstr.children.map(c => convertTreeForD3(c, leafNames))
+    const children = clstr.children.map(c => convertTreeForD3(c, leafNames));
     return {
       name,
       children
-    }
+    };
   }
 }
 
@@ -88,5 +88,5 @@ export function convertForD3(clusterExpressionReplicatesResult, leafNames) {
     matrix: clusterExpressionReplicatesResult.distanceMatrix,
     rowJSON: convertedTree,
     colJSON: convertedTree
-  }
+  };
 }

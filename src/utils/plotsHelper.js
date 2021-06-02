@@ -338,6 +338,7 @@ export function createPcaPlot() {
   // Project the data2dArr into PC coordinate system:
   let projectedData = pca.predict(data2dArr);
   // Plot using Plotly.js:
+  console.log(dataTable.colNames);
   var data = [{
     x: projectedData.getColumn(0),
     y: projectedData.getColumn(1),
